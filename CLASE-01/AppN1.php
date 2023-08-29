@@ -5,7 +5,6 @@
     supere a 1000. Mostrar los números sumados y al finalizar el proceso indicar cuantos números
     se sumaron.
 */
-
     $suma = 1;
     $numerosSumados = 0;
 
@@ -18,6 +17,6 @@
         }
     }
 
-
     echo "Se sumaron un total de $numerosSumados números";
+    
 ?>
