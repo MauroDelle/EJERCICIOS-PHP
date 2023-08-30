@@ -22,7 +22,7 @@
     //Ahora muesto los numeros del array;
     echo "Números en el array: " . implode(", ", $elementos) . "<br>"; // Mostramos los números en el array separados por comas
     echo "Promedio: $promedio<br>"; // Mostramos el promedio calculado
-    
+
     //Determino si el promedio es mayor, menor o igual a 6.
     if($promedio > 6){
         echo "El promedio es mayor que 6.";
