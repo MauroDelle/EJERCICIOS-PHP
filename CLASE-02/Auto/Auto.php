@@ -40,7 +40,6 @@
             $this->_precio = $precio;
             $this->_fecha = $fecha;
         }
-
         /* Realizar un método de instancia llamado “AgregarImpuestos”, que recibirá un doble
         por parámetro y que se sumará al precio del objeto.
         */

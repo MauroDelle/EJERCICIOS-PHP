@@ -25,6 +25,7 @@ $importeFinal = Auto::Add($auto1,$auto2);
 
 /* Comparar el primer “Auto” con el segundo y quinto objeto e informar si son iguales o
 no. */
+
 $comparacion1_2 = $auto1->Equals($auto2);
 $comparacion1_5 = $auto1-> Equals($auto5);
 
