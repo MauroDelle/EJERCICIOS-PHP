@@ -1,4 +1,8 @@
-<!-- Aplicación No 20 BIS (Registro CSV)
+<!-- 
+    
+            MAURO DELLE CHIAIE
+
+Aplicación No 20 BIS (Registro CSV)
 Archivo: registro.php
 método:POST
 Recibe los datos del usuario(nombre, clave,mail )por POST ,
