@@ -12,8 +12,10 @@
             //valido el valor del parametro
             if($listado === 'usuarios')
             {
+                $nuevoUsuario = new Usuario('usuario','clave','mail');
+
                 //ahora cargo los datos desde el archivo usuarios.csv y los almaceno en un array de usuarios;
-                $usuarios = cargarUsuariosDesdeCSV('usuarios.csv');
+                $usuarios = $nuevoUsuario->cargarUsuariosDesdeCSV('usuarios.csv');
 
                 if($usuarios)
                 {
@@ -37,23 +39,23 @@
     }
 
 
-    function cargarUsuariosDesdeCSV($csvFile)
-    {
-        $usuarios = [];
-        if (file_exists($csvFile)) {
-            $lines = file($csvFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-            foreach ($lines as $line) {
-                $data = explode(',', $line);
-                if (count($data) === 3) {
-                    $nombre = $data[0];
-                    $clave = $data[1];
-                    $mail = $data[2];
-                    $usuarios[] = new Usuario($nombre, $clave, $mail);
-                }
-            }
-        }
-        return $usuarios;
-    }
+    // function cargarUsuariosDesdeCSV($csvFile)
+    // {
+    //     $usuarios = [];
+    //     if (file_exists($csvFile)) {
+    //         $lines = file($csvFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    //         foreach ($lines as $line) {
+    //             $data = explode(',', $line);
+    //             if (count($data) === 3) {
+    //                 $nombre = $data[0];
+    //                 $clave = $data[1];
+    //                 $mail = $data[2];
+    //                 $usuarios[] = new Usuario($nombre, $clave, $mail);
+    //             }
+    //         }
+    //     }
+    //     return $usuarios;
+    // }
 
 
 ?>

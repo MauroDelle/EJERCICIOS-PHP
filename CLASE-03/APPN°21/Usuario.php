@@ -59,6 +59,27 @@ class Usuario
         }
     }
 
+
+    function cargarUsuariosDesdeCSV($csvFile)
+    {
+        $usuarios = [];
+        if (file_exists($csvFile)) {
+            $lines = file($csvFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            foreach ($lines as $line) {
+                $data = explode(',', $line);
+                if (count($data) === 3) {
+                    $nombre = $data[0];
+                    $clave = $data[1];
+                    $mail = $data[2];
+                    $usuarios[] = new Usuario($nombre, $clave, $mail);
+                }
+            }
+        }
+        return $usuarios;
+    }
+
+
+
 }
 
 ?>
