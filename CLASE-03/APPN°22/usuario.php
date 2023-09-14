@@ -45,42 +45,42 @@ class Usuario
     }
 
 
+    // public function verificarUsuario($clave, $mail)
+    // {
+    //     // Cargar los datos de usuarios desde el archivo CSV
+    //     $usuarios = $this->cargarUsuariosDesdeCSV('usuarios.csv');
+    
+    //     // Filtrar los usuarios que coincidan con el correo electrónico y la clave
+    //     $usuariosCoincidentes = array_filter($usuarios, function ($usuario) use ($mail, $clave) {
+    //         return $usuario['mail'] === $mail && $usuario['clave'] === $clave;
+    //     });
+    
+    //     // Si se encontraron usuarios coincidentes, entonces el usuario está verificado
+    //     if (!empty($usuariosCoincidentes)) {
+    //         return "Verificado"; // Usuario y clave coinciden
+    //     }
+    
+    //     return "Error en los datos o Usuario no registrado";
+    // }
+
+    //hice las dos posibilidades, utilizando array filter y haciendo un foreach convencional.
+
     public function verificarUsuario($clave, $mail)
     {
         // Cargar los datos de usuarios desde el archivo CSV
         $usuarios = $this->cargarUsuariosDesdeCSV('usuarios.csv');
-    
-        // Filtrar los usuarios que coincidan con el correo electrónico y la clave
-        $usuariosCoincidentes = array_filter($usuarios, function ($usuario) use ($mail, $clave) {
-            return $usuario['mail'] === $mail && $usuario['clave'] === $clave;
-        });
-    
-        // Si se encontraron usuarios coincidentes, entonces el usuario está verificado
-        if (!empty($usuariosCoincidentes)) {
-            return "Verificado"; // Usuario y clave coinciden
+        
+        foreach ($usuarios as $usuario) {
+            if ($usuario['mail'] === $mail) {
+                if ($usuario['clave'] === $clave) {
+                    return "Verificado"; // Usuario y clave coinciden
+                } else {
+                    return "Error en los datos"; // Clave incorrecta
+                }
+            }
         }
-    
-        return "Error en los datos o Usuario no registrado";
+        return "Usuario no registrado"; // Mail no coincide
     }
-
-    //hice las dos posibilidades, utilizando array filter y haciendo un foreach convencional.
-
-// public function verificarUsuario($clave, $mail)
-// {
-//     // Cargar los datos de usuarios desde el archivo CSV
-//     $usuarios = $this->cargarUsuariosDesdeCSV('usuarios.csv');
-
-//     foreach ($usuarios as $usuario) {
-//         if ($usuario['mail'] === $mail) {
-//             if ($usuario['clave'] === $clave) {
-//                 return "Verificado"; // Usuario y clave coinciden
-//             } else {
-//                 return "Error en los datos"; // Clave incorrecta
-//             }
-//         }
-//     }
-//     return "Usuario no registrado"; // Mail no coincide
-// }
 
     //funcion para cargar usuarios desde el archivo CSV en una lista
     function cargarUsuariosDesdeCSV($csvFile)

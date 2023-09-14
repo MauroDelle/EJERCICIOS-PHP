@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $clave = $_POST['clave'];
     $mail = $_POST['mail'];
 
-    // Crear un objeto de usuario (esto debería obtenerse de la base de datos en una aplicación real)
+    // Crear un objeto de usuario
     $usuarioRegistrado = new Usuario('NombreDelUsuario', 'ClaveDelUsuario', 'correo@usuario.com');
 
     // Verificar si el usuario y la clave coinciden
