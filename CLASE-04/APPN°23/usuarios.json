@@ -1,0 +1,18 @@
+[
+    {
+        "id": 2836,
+        "nombre": "mauro",
+        "mail": "mauro@mail.com",
+        "clave": "1234",
+        "fechaRegistro": "2023-09-19 21:58:56",
+        "imagen": "d:\\xampp\\htdocs\\EJERCICIOS-PHP\\Fotos\\yo.jpg"
+    },
+    {
+        "id": 1072,
+        "nombre": "mauro",
+        "mail": "mauro@mail.com",
+        "clave": "1234",
+        "fechaRegistro": "2023-09-19 22:06:26",
+        "imagen": "d:\\xampp\\htdocs\\EJERCICIOS-PHP\\Fotos\\download.jpg"
+    }
+]
