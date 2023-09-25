@@ -4,31 +4,19 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        var_dump($codigoDeBarras);
-        var_dump($nombre);
-        var_dump($tipo);
-            // Verificar si el código de barras está presente
-        if (isset($data['codigoDeBarras'])) {
-            $codigoDeBarras = $data['codigoDeBarras'];
-        } else {
-            // Manejar el caso en el que 'codigo_de_barra' no está definido
-            echo "Error: Falta el código de barras.";
-            exit;
-        }
-
-        //Primero obtengo los datos del form
-        //$codigoDeBarra = $_POST["codigoDeBarras"];
         $nombre = $_POST["nombre"];
         $tipo = $_POST["tipo"];
         $stock = $_POST["stock"];
-        $precio = $_POST["precio"]; 
+        $precio = $_POST["precio"];
+        $codigoDeBarras = $_POST["codigoDeBarras"];
+        $id = mt_rand(1, 10000);
 
-        $producto = new Producto($nombre,$tipo,$stock,$precio,$codigoDeBarra);
+        $producto = new Producto($nombre,$tipo,$stock,$precio,$codigoDeBarras,$id);
 
-        //ahora verifico si el producto ya existe y realizo la actualizacion o el agregado del nuevo producto;
         $resultado = $producto->verificarYActualizar();
 
         echo $resultado;
+
     }
     else{
         echo "No se recibieron datos POST";

@@ -1,5 +1,18 @@
-{
-    "": {
-        "stock": 25
+[
+    {
+        "Id": 192,
+        "codigoDeBarras": "j2h4d8",
+        "nombre": "Arroz",
+        "tipo": "Cereal",
+        "stock": 84,
+        "precio": "450"
+    },
+    {
+        "Id": 4624,
+        "codigoDeBarras": "g4d92l",
+        "nombre": "Vacio",
+        "tipo": "Carne Vacuna",
+        "stock": 40,
+        "precio": "450"
     }
-}
+]

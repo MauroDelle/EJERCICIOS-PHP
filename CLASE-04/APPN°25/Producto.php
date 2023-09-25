@@ -7,34 +7,19 @@ class Producto{
     private $tipo;
     private $stock;
     private $precio;
+
+    private $id;
     #endregion
 
     #region CONSTRUCT
-    public function __construct($nombre,$tipo,$stock,$precio,$codigoDeBarras)
+    public function __construct($nombre,$tipo,$stock,$precio,$codigoDeBarras,$id)
     {
-                // Verificar si el código de barras está presente
-        if (isset($codigoDeBarras)) {
-            $this->codigoDeBarras = $codigoDeBarras;
-        } else {
-            // Manejar el caso en el que 'codigo_de_barra' no está definido
-            throw new Exception("Error: Falta el código de barras.");
-        }
         $this->nombre = $nombre;
         $this->tipo = $tipo;
-        if (isset($stock)) {
-            $this->stock = $stock;
-        } else {
-            // Manejar el caso en el que 'stock' no está definido
-            throw new Exception("Error: Falta el stock.");
-        }
-                // Verificar si el precio está presente
-                if (isset($precio)) {
-                    $this->precio = $precio;
-                } else {
-                    // Manejar el caso en el que 'precio' no está definido
-                    throw new Exception("Error: Falta el precio.");
-                }
-        // $this->codigoDeBarras = $codigoDeBarras;
+        $this->stock = $stock;
+        $this->precio = $precio;
+        $this->codigoDeBarras = $codigoDeBarras;
+        $this->id = $id; 
     }
     #endregion
 
@@ -60,9 +45,13 @@ class Producto{
         return $this->precio;
     }
 
-    public function getId()
+    public function getCodigoDeBarras()
     {
         return $this->codigoDeBarras;
+    }
+    public function getId()
+    {
+        return $this->id;
     }
     #endregion
  
@@ -73,6 +62,11 @@ class Producto{
     public function verificarYActualizar()
     {
         $productos = $this->cargarDesdeJSON('productos.json');
+
+        // if($productos === null)
+        // {
+        //     return "No se pudo cargar el archivo Json";
+        // }
         $indice  = $this->buscarEnLista($productos);
 
         if($indice !== false)
@@ -83,6 +77,7 @@ class Producto{
             //aca si el producto no se encontro, osea que lo agrego como nuevo
 
             $nuevoProducto = [
+                'Id' => $this->id,
                 'codigoDeBarras' => $this->codigoDeBarras,
                 'nombre' => $this->nombre,
                 'tipo' => $this->tipo,
@@ -127,6 +122,7 @@ class Producto{
                 return $indice;
             }
         }
+        return false;
     }
 
     public function guardarEnJSON($productos,$archivo)
